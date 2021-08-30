@@ -118,7 +118,8 @@
 - name: copy template templates
   template:
     src: "{{ item.src }}"
-    dest: "{{ consul_template_home }}/templates/{{ item.dest if item.dest is defined else item.src | basename | regex_replace('^(.*)\.j2$', '\\1') }}"
+    dest: >-
+      {{ consul_template_home }}/templates/{{ item.dest if item.dest is defined else item.src | basename | regex_replace('^(.*)\.j2$', '\\1') }}
   with_items: "{{ consul_template_template_templates }}"
   when: consul_template_template_templates | length > 0
   notify:
