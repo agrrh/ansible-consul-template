@@ -1,0 +1,10 @@
+---
+
+- name: update apt
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: install deps (Debian)
+  apt:
+    pkg: unzip

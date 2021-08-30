@@ -1,4 +1,9 @@
 ---
 # tasks file for consul-template
+
+- name: fail with Fedora 22+
+  fail:
+    msg: "Fedora 22+ is not supported yet because it uses dnf"
+  when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 22
+
 - include: install.yml
-- include: service.yml
