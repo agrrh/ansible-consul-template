@@ -41,7 +41,7 @@
     cp {{ consul_template_staging_area }}/{{ consul_template_binary }}
       {{ consul_template_home }}/bin/{{ consul_template_binary }}
   args:
-    creates: {{ consul_template_home }}/bin/{{ consul_template_binary }}
+    creates: "{{ consul_template_home }}/bin/{{ consul_template_binary }}"
 
 - name: Update consul-template permissions
   file:
